@@ -1,0 +1,71 @@
+am definit functiile dezalocare si alocare in imageprocessing.c (pt usurinta)
+    de scriere
+TASK 1
+    avem un aux si schimbam valorile intre ele
+    mergem pana la jumate ca daca trecem de jumate ajungem 
+        de unde am plecat
+TASK 2
+    alocam o noua matrice b care are dimensiunile inversate
+        (liniile devin coloane si invers)
+    atribuim elementele din mat imag in mat b ai. sa o rotim la stg
+    dezalocam img si o alocam cu noile dim., copiem din b in img
+    returnam imag
+TASK 3
+    alocam o noua mat b cu dimensiunile imag dp crop
+    returnam imaginea creata
+TASK 4
+    alocam o mat b cu noile dimensiuni si initializam val din ea cu
+        RGB urile date
+    dp avem o struct repetitiva pt a trece elem din imag in b ai sa 
+        ne ramana acea rama
+TASK 5
+    in parametrii dati dam paste la image_src
+    avem un if ai sa nu se depaseasca dimensiunea lui img_dst
+Task 6
+    avem o serie de ifuri care sa verifice ca atunci cand se face acea medie,
+        sa nu se acceseze elem din afara imag in cazul in care se ia elem 00 si 
+        filtrul e de 3x3, acei presupusi -1,-1, -1,0, -1,1 ,1,-1, 2,-1 sunt 
+        luaati ca 0
+Task 7
+    exit
+        se verifica inainte de while
+        exista si in while si daca se gaseste comanda iese din while direct
+    load
+        am alocat un pointer ce reprezinta un vector de poze(o colectie de poze)
+        de asemenea avem un vector de retine valorile dimensiunii fiecarei mat
+            dp index
+        se aloca imaginile in ordine si li se da un index
+    save
+        luam matricea de la indexul x si os salvam cu ajutorul write_to_bmp
+    apply-horizontal
+        apelam flip_horizantal din imageprocessing.c dp index
+    apply-rotate
+        interschimbam dimensiunile din vectorul ce retine dimensiunile
+        apelam rotate_left din imageprocessing.c dp index
+    apply-crop
+        schimbam dim din v dp caz si apoi apelam fct crop
+    apply-extend
+        schimbam dim din v dp caz si apoi apelam fct extend
+    apply-paste 
+        apelam fct paste
+    create-filter
+        am alocat la inceput un pointer ce poate retine adresele unor mat
+        alocam de fiecare data cate o noua mat pt filtru si citim val de la 
+            tastatura
+    apply-filter 
+        apelam fct apply_filter din imageprocessing.c
+    delete-filter
+        dezalocam filtrul dp indexul respectiv
+        facem un for de la index pana la capat si realocam pe rand
+            matricea care urmeaza si copiem valorile. Dp dezaloca urm si copiaza 
+            val de la urm s.a.m.d
+        la final trebuie sa dezalocam mat de pe n2-1 pt ca altfel ramanem cu 
+        un vector de indexuri de forma 0 1 2 3 3
+    delete-image
+        acelasi proces ca la delete-filter dar aici folosim fct alocare si 
+            dezalocare
+    in final dezalocam toate imaginile si filtrele ramase in memorie
+
+
+
+
